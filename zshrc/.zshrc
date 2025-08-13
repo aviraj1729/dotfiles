@@ -8,8 +8,12 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:/var/lib/snapd/snap/bin
+export SNAP_VERSION="x11"
+
 
 plugins=( 
     git
@@ -145,7 +149,16 @@ alias ds="python manage.py shell"
 
 #react with vite alias
 alias nrd="npm run dev"
+
+#tmux alias
 alias t="tmux"
+alias ta="tmux attach"
+alias tl="tmux ls"
+
+#tmuxifier
+alias tx="tmuxifier"
+alias txe="tmuxifier edit-session"
+alias txl="tmuxifier load-session"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -162,6 +175,10 @@ export VDPAU_DRIVER=va_g1
 
 export MOZ_ENABLE_WAYLAND=1
 export XDG_SESSION_TYPE=wayland
+export QT_QPA_PLATFORM=wayland
+
+export JAVA_HOME=/usr/lib/jvm/java-24-openjdk
+
 
 alias microsoft-edge="microsoft-edge-stable --enable-features=UseOzonePlatform --ozone-platform=wayland"
 
@@ -173,12 +190,24 @@ alias tl='tmux ls'
 alias gc='git clone '
 alias ga='git add .'
 alias gcm='git commit -m '
-alias gp='git push -u orign main'
+alias gp='git push -u origin main'
 alias gs='git status'
 
-source <(fzf --zsh)
+alias bt='bluetoothctl'
+
+# source <(fzf --zsh)
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH="$HOME/.npm-global/bin:$PATH"

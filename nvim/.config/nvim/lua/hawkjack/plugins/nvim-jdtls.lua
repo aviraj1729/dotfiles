@@ -4,7 +4,17 @@ return {
 	ft = java_filetypes,
 	opts = function()
 		local mason_registry = require("mason-registry")
-		local lombok_jar = mason_registry.get_package("jdtls"):get_install_path() .. "/lombok.jar"
+		local lombok_jar = nil
+		local default_lombok = vim.fn.stdpath("data") .. "/mason/packages/jdtls/lombok.jar"
+		if ok and pkg then
+			lombok_jar = pkg:get_install_path() .. "/lombok.jar"
+		elseif vim.fn.filereadable(default_lombok) == 1 then
+			lombok_jar = default_lombok
+		else
+			-- last fallback: put your manual lombok.jar path here
+			lombok_jar = "/path/to/lombok.jar"
+		end
+
 		return {
 			-- How to find the root dir for a given filename. The default comes from
 			-- lspconfig which provides a function specifically for java projects.

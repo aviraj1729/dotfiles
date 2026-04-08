@@ -32,20 +32,7 @@ plugins=(
     zsh-syntax-highlighting
 )
 
-vdi() {
-  xfreerdp /v:161.248.37.248:57788 \
-           /u:qhvdi7 \
-           /p:'arx@#$eVert123' \
-           /sec:nla \
-           /cert-ignore \
-           /auto-reconnect \
-           /scale:180 \
-           /dynamic-resolution \
-           /fonts \
-           /gfx \
-           /clipboard \
-           /f
-}
+
 
 
 

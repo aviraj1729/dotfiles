@@ -32,7 +32,25 @@ plugins=(
     zsh-syntax-highlighting
 )
 
+vdi() {
+  echo -n "Enter Password: "
+  read -s pass
+  echo ""
 
+  xfreerdp /v:192.168.219.175 \
+           /u:qhvdi7 \
+           /p:"$pass" \
+           /sec:nla \
+           /cert-ignore \
+           /auto-reconnect \
+           /fonts \
+           /multimon \
+           /gfx \
+           /clipboard \
+           /monitors:0,1 \
+           /grab-keyboard \
+           /f
+}
 
 
 
@@ -151,3 +169,4 @@ setopt HIST_REDUCE_BLANKS
 
 # opencode
 export PATH=/home/hawkjack/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
